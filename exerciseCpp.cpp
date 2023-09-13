@@ -6,7 +6,104 @@ int gender, age, mode;
 float bmr, cal_r = 0, cal_c = 0, cal_skip = 0, cal_push = 0, cal_pull = 0, cal_s = 0, cal_sj = 0, cal_b = 0, total = 0;
 float w, h;
 
-float bmr_f(float h, float w)
+float start()
+{
+    total = 0;
+    while (true)
+    {
+        cout << "Enter Height (cm): ";
+        if (cin >> h)
+        {
+            if (h > 0)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Invalid input, try again" << endl;
+            }
+        }
+        else
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+
+    while (true)
+    {
+        cout << "Enter Weight (kg): ";
+        if (cin >> w)
+        {
+            if (w > 0)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Invalid input, try again" << endl;
+            }
+        }
+        else
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+
+    while (true)
+    {
+        cout << "Enter Age (years): ";
+        if (cin >> age)
+        {
+            if (age > 0)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Invalid input, try again" << endl;
+            }
+        }
+        else
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+
+    int gender;
+    while (true)
+    {
+        cout << "\nEnter your Gender" << endl;
+        cout << "1. Male" << endl;
+        cout << "2. Female" << endl;
+        cout << "Gender: ";
+        if (cin >> gender)
+        {
+            if (gender == 1 || gender == 2)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Invalid input, try again" << endl;
+            }
+        }
+        else
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+    return h, w, age, gender;
+}
+
+float bmr_f()
 {
     float bmr = (gender = 1) ? 13.397 * w + 4.799 * h - 5.677 * age + 88.362 : 9.247 * w + 3.098 * h - 4.33 * age + 447.593;
     cout << "\nBasic Metabolic Rate (BMR): " << bmr << " Kcal" << endl;
@@ -137,6 +234,7 @@ float running(float bmr)
     float met_r = 0.0931074 + 0.948646717 * speed_r;
     float cal_r = (bmr * met_r) / (24 / (min_r / 60));
     cout << "\nMets: " << met_r << endl;
+    cout << "BMR: " << bmr << endl;
     cout << "Average Running speed: " << speed_r << endl;
     cout << "Calories burned by Running: " << cal_r << " Kcal" << endl;
     total = total + cal_r;
@@ -146,7 +244,7 @@ float running(float bmr)
 float cycling(float bmr)
 {
     float min_c, dist_c, speed_c;
-    cout << "\n***Running***";
+    cout << "\n***Cycling***";
     while (true)
     {
         cout << "\n1. Distance & Time" << endl
@@ -471,7 +569,7 @@ float squats()
 float sidejumps()
 {
     float sidejumps_count, sidejumps_time;
-    cout << "\n**Sidejumps**";
+    cout << "\n***Sidejumps***";
     while (true)
     {
         cout << "\n1. No. of Sidejumps" << endl;
@@ -586,104 +684,14 @@ float burpees()
 
 int main()
 {
-    while (true)
-    {
-        cout << "Enter Height (cm): ";
-        if (cin >> h)
-        {
-            if (h > 0)
-            {
-                break;
-            }
-            else
-            {
-                cout << "Invalid input, try again" << endl;
-            }
-        }
-        else
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input, try again" << endl;
-        }
-    }
-
-    while (true)
-    {
-        cout << "Enter Weight (kg): ";
-        if (cin >> w)
-        {
-            if (w > 0)
-            {
-                break;
-            }
-            else
-            {
-                cout << "Invalid input, try again" << endl;
-            }
-        }
-        else
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input, try again" << endl;
-        }
-    }
-
-    while (true)
-    {
-        cout << "Enter Age (years): ";
-        if (cin >> age)
-        {
-            if (age > 0)
-            {
-                break;
-            }
-            else
-            {
-                cout << "Invalid input, try again" << endl;
-            }
-        }
-        else
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input, try again" << endl;
-        }
-    }
-
-    int gender;
-    while (true)
-    {
-        cout << "\nEnter your gender: " << endl;
-        cout << "1. Male" << endl;
-        cout << "2. Female" << endl;
-        cout << "Gender: ";
-        if (cin >> gender)
-        {
-            if (gender == 1 || gender == 2)
-            {
-                break;
-            }
-            else
-            {
-                cout << "Invalid input, try again" << endl;
-            }
-        }
-        else
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input, try again" << endl;
-        }
-    }
-    float bmr = bmr_f(h, w);
+    start();
+    float bmr = bmr_f();
     int exercise;
     while (true)
     {
-        cout << "\n********" << endl;
+        cout << "\n*********" << endl;
         cout << "Exercises" << endl;
-        cout << "********" << endl;
+        cout << "*********" << endl;
         cout << "1. Running" << endl;
         cout << "2. Cycling" << endl;
         cout << "3. Skipping" << endl;
@@ -693,11 +701,12 @@ int main()
         cout << "7. Side Jumps" << endl;
         cout << "8. Burpees" << endl;
         cout << "9. Total" << endl;
-        cout << "10. EXIT" << endl;
+        cout << "10. Restart" << endl;
+        cout << "11. EXIT" << endl;
         cout << "Select: ";
         if (cin >> exercise)
         {
-            if (exercise == 10)
+            if (exercise == 11)
             {
                 cout << "\nProgram Exited";
                 break;
@@ -749,6 +758,12 @@ int main()
 
         case 9:
             cout << "\nTotal Calorie Expenditure: " << total << " Kcal";
+            break;
+
+        case 10:
+            cout << "\n***Restarted***\n";
+            start();
+            bmr_f();
             break;
         }
     }
