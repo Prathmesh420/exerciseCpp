@@ -740,7 +740,7 @@ int main()
 
         case 9:
             float total = cal_r + cal_c + cal_skip + cal_push + cal_pull + cal_s + cal_sj + cal_b;
-            cout << "\nTotal Calories consumed: " << total << " Kcal";
+            cout << "\nTotal Calories expended: " << total << " Kcal";
             break;
         }
     }
