@@ -234,7 +234,6 @@ float running(float bmr)
     float met_r = 0.0931074 + 0.948646717 * speed_r;
     float cal_r = (bmr * met_r) / (24 / (min_r / 60));
     cout << "\nMets: " << met_r << endl;
-    cout << "BMR: " << bmr << endl;
     cout << "Average Running speed: " << speed_r << endl;
     cout << "Calories burned by Running: " << cal_r << " Kcal" << endl;
     total = total + cal_r;
