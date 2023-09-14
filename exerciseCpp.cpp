@@ -112,7 +112,7 @@ float bmr_f()
 
 float running(float bmr)
 {
-    float min_r, dist_r, speed_r;
+    float min_r = 0, dist_r = 0, speed_r = 0;
     cout << "\n***Running***";
     while (true)
     {
@@ -231,9 +231,11 @@ float running(float bmr)
         }
         break;
     }
+    dist_r = speed_r * (min_r / 60);
     float met_r = 0.0931074 + 0.948646717 * speed_r;
     float cal_r = (bmr * met_r) / (24 / (min_r / 60));
     cout << "\nMets: " << met_r << endl;
+    cout << dist_r << " km was ran in " << min_r << " min" << endl;
     cout << "Average Running speed: " << speed_r << endl;
     cout << "Calories burned by Running: " << cal_r << " Kcal" << endl;
     total = total + cal_r;
@@ -242,7 +244,7 @@ float running(float bmr)
 
 float cycling(float bmr)
 {
-    float min_c, dist_c, speed_c;
+    float min_c = 0, dist_c = 0, speed_c = 0;
     cout << "\n***Cycling***";
     while (true)
     {
@@ -361,9 +363,11 @@ float cycling(float bmr)
         }
         break;
     }
+    dist_c = speed_c * (min_c / 60);
     float met_c = -0.758101053 + 0.4417117706 * speed_c;
     float cal_c = (bmr * met_c) / (24 / (min_c / 60));
     cout << "\nMets: " << met_c << endl;
+    cout << dist_c << " km was travelled in " << min_c << " min" << endl;
     cout << "Average Cycling speed: " << speed_c << endl;
     cout << "Calories burned by Cycling: " << cal_c << " Kcal" << endl;
     total = total + cal_c;
@@ -372,7 +376,7 @@ float cycling(float bmr)
 
 float skipping(float bmr)
 {
-    float min_skip, skip_count, skip_speed;
+    float min_skip = 0, skip_count = 0, skip_speed = 0;
     cout << "\n***Skipping***";
     while (true)
     {
@@ -489,16 +493,18 @@ float skipping(float bmr)
             }
         }
     }
+    skip_count = skip_speed * min_skip;
     float met_skip = 0.4666666 + 0.0875 * skip_speed;
     float cal_skip = (bmr * met_skip) / (24 / (min_skip / 60));
     cout << "\nMets: " << met_skip << endl;
+    cout << skip_count << " Skips in " << min_skip << " min" << endl;
     cout << "Average Skipping Rate: " << skip_speed << endl;
     cout << "Calories burned by Skipping: " << cal_skip << " Kcal" << endl;
     total = total + cal_skip;
     return total;
 }
 
-float pushups()
+void pushups()
 {
     cout << "\nPushups, Work in progress...";
 }
@@ -756,7 +762,7 @@ int main()
             break;
 
         case 9:
-            cout << "\nTotal Calorie Expenditure: " << total << " Kcal";
+            cout << "\nTotal Calorie Expenditure: " << total << " Kcal\n";
             break;
 
         case 10:
