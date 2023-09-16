@@ -236,7 +236,7 @@ float running(float bmr)
     float cal_r = (bmr * met_r) / (24 / (min_r / 60));
     cout << "\nMets: " << met_r << endl;
     cout << dist_r << " km was ran in " << min_r << " min" << endl;
-    cout << "Average Running speed: " << speed_r << " km" << endl;
+    cout << "Average Running speed: " << speed_r << " kmph" << endl;
     cout << "Calories burned by Running: " << cal_r << " Kcal" << endl;
     total = total + cal_r;
     return total;
@@ -368,7 +368,7 @@ float cycling(float bmr)
     float cal_c = (bmr * met_c) / (24 / (min_c / 60));
     cout << "\nMets: " << met_c << endl;
     cout << dist_c << " km was travelled in " << min_c << " min" << endl;
-    cout << "Average Cycling speed: " << speed_c << " km" << endl;
+    cout << "Average Cycling speed: " << speed_c << " kmph" << endl;
     cout << "Calories burned by Cycling: " << cal_c << " Kcal" << endl;
     total = total + cal_c;
     return total;
