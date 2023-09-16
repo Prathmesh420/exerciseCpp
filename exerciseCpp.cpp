@@ -236,7 +236,7 @@ float running(float bmr)
     float cal_r = (bmr * met_r) / (24 / (min_r / 60));
     cout << "\nMets: " << met_r << endl;
     cout << dist_r << " km was ran in " << min_r << " min" << endl;
-    cout << "Average Running speed: " << speed_r << endl;
+    cout << "Average Running speed: " << speed_r << " km" << endl;
     cout << "Calories burned by Running: " << cal_r << " Kcal" << endl;
     total = total + cal_r;
     return total;
@@ -368,7 +368,7 @@ float cycling(float bmr)
     float cal_c = (bmr * met_c) / (24 / (min_c / 60));
     cout << "\nMets: " << met_c << endl;
     cout << dist_c << " km was travelled in " << min_c << " min" << endl;
-    cout << "Average Cycling speed: " << speed_c << endl;
+    cout << "Average Cycling speed: " << speed_c << " km" << endl;
     cout << "Calories burned by Cycling: " << cal_c << " Kcal" << endl;
     total = total + cal_c;
     return total;
@@ -498,7 +498,7 @@ float skipping(float bmr)
     float cal_skip = (bmr * met_skip) / (24 / (min_skip / 60));
     cout << "\nMets: " << met_skip << endl;
     cout << skip_count << " Skips in " << min_skip << " min" << endl;
-    cout << "Average Skipping Rate: " << skip_speed << endl;
+    cout << "Average Skipping Rate: " << skip_speed << " count/min" << endl;
     cout << "Calories burned by Skipping: " << cal_skip << " Kcal" << endl;
     total = total + cal_skip;
     return total;
